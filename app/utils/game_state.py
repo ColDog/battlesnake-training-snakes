@@ -1,4 +1,5 @@
 from vector import Vector
+from utils.competitor import Competitor
 
 
 class GameState(object):
@@ -9,7 +10,6 @@ class GameState(object):
         self._food = None
 
     def empty_squares(self):
-
         if self._empty_squares is not None:
             return self._empty_squares
 
@@ -34,6 +34,24 @@ class GameState(object):
 
     def is_empty(self, v):
         return (v.x, v.y) in self.empty_squares()
+
+    def competitors(self):
+        competition = []
+        for snake in self.data["snakes"]["data"]:
+            if snake["id"] == self.data["you"]["id"]:
+                continue
+            segments = snake["body"]["data"]
+            competition.append(Competitor(
+                head=Vector(segments[0]["x"], segments[0]["y"]),
+                neck=Vector(segments[1]["x"], segments[1]["y"]),
+                length=len(segments),
+            ))
+        return competition
+
+    @property
+    def my_length(self):
+        segments = self.data["you"]["body"]["data"]
+        return len(segments)
 
     @property
     def my_head(self):
@@ -63,5 +81,4 @@ class GameState(object):
     def food(self):
         if self._food is None:
             self._food = [Vector(f["x"], f["y"]) for f in self.data["food"]["data"]]
-        print self._food
         return self._food

@@ -1,3 +1,4 @@
+from snake_5 import Snake5
 from snake_4 import Snake4
 from snake_3 import Snake3
 from snake_2 import Snake2
@@ -10,6 +11,7 @@ _snakes = {
     "snake_2": Snake2(),
     "snake_3": Snake3(),
     "snake_4": Snake4(),
+    "snake_5": Snake5(),
 }
 
 

@@ -44,17 +44,14 @@ To help battlesnake attendies train and verify their snakes, we'll provide a poo
 - Avoids walls
 - Avoids snake segments
 - Eats orthoganally closest food
-
-### 6/10 Snake
-- Avoids walls
-- Avoids snake segments
-- When hungry, eats closest food
-
-### 7/10 Snake
-- Avoids walls
-- Avoids snake segments
-- When hungry, eats closest food
 - Goes for potential head/head kills of smaller snakes
+
+### Snake 6
+- Avoids walls
+- Avoids snake segments
+- Eats orthoganally closest food
+- Goes for potential head/head kills of smaller snakes
+- Does not enter small spaces when larger space is an option
 
 ### 8/10 Snake
 - Avoids walls
